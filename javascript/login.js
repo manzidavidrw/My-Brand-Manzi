@@ -15,13 +15,12 @@ const password_error=document.getElementById('password_error');
 
 form.addEventListener('submit', (e)=>{
   let email_checker =/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(password.value === '' || password.value == null){
-    e.preventDefault();
-    password_error.innerHTML = "password can't be blank";
+   if(password.value === ''){
+    
+    password_error.innerHTML = "**password can't be blank**";
   }
-  else if(password.value.length > 4){
-    e.preventDefault();
-    password_error.innerHTML = "password too short";
+  else if(password.value.length > 6 || password.value.length < 5){
+    password_error.innerHTML = "**password should be five**";
   }
   else{
     password_error.innerHTML = "";

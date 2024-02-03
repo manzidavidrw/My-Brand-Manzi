@@ -137,7 +137,7 @@ form {
 
 label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   font-weight: bold;
   font-size: 12px;
 }
@@ -145,7 +145,6 @@ label {
 input, textarea {
   width: 100%;
   padding: 8px;
-  margin-bottom: 16px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -212,6 +211,18 @@ hr {
   display: flex;
   justify-content: space-between;
 }
+#email_error{
+  font-size: 10px;
+  color: red;
+  margin-top: 0;
+  font-style: italic;
+}
+#comment_error{
+  font-size: 10px;
+  color: red;
+  margin-top: 0;
+  font-style: italic;
+}
 
 .footer-settings ul li {
   display: inline-block;
@@ -223,6 +234,9 @@ hr {
 .footer-start {
   padding: 10px 35px;
   cursor: pointer;
+}
+.flogo{
+  width:5px;
 }
 @media only screen and (max-width: 1200px) {
   .container {
