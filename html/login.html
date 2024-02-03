@@ -11,7 +11,7 @@
 </head>
 <body>
   <nav class="navbar">
-    <img src="../assets/Logo.png" alt="logo">
+    <img src="../assets/manzilogo.jpeg" alt="logo" class="logo">
     <ul class="nav-list">
       <li><a href="#">Home</a></li>
       <li><a href="#">Portofolio</a></li>
@@ -31,17 +31,19 @@
     </div>
     <div class="fill">
       <h1>Sign in</h1>
-      <form>
+      <form id="form">
         <div class="babo">
         <label for="email">Email</label><br>
-        <input type="text" class="email"><br>
+        <input type="text" id="email" class="email"><br>
+        <span id="email_error"></span>
         </div>
         <div class="babo">
-        <label for="email">Password</label><br>
-        <input type="text" class="email"><br>
-        <a href=""><u>forget Password?</u></a>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" class="email"><br>
+        <span id="password_error"></span>
+        <!-- <a href=""><u>forget Password?</u></a> -->
       </div>
-        <a href="Dashboard.html"><button type="button" class="buto">Sign in</button></a>
+      <button type="submit" class="buto">Submit</button>
         <p class="up"><b>signup</b> if you dont have account?</p>
       </form>
     </div>

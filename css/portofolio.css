@@ -54,7 +54,15 @@ nav ul li a:hover {
 .blog-btns{
   display:none;
 }
-
+.logo{
+  width:60px;
+  height: 50px;
+}
+.logo2{
+  width:50px;
+  height:50px;
+  outline: transparent;
+}
 .btn {
   color: #5E3BEE;
   font-size: 15px;
@@ -424,6 +432,21 @@ form {
   padding-top: 10px;
   padding-left: 35%;
 }
+#message_error{
+  color:red;
+  font-style:italic;
+  font-size: 11px;
+}
+#name_error{
+  color:red;
+  font-style:italic;
+  font-size: 11px;
+}
+#phone_error{
+  color:red;
+  font-style:italic;
+  font-size: 11px;
+}
 
 form .contact-form {
   display: flex;
@@ -590,7 +613,6 @@ hr {
   .nav-list.active {
     display: flex;
   }
-
   .hamburger {
     display: block;
   }
@@ -610,7 +632,7 @@ hr {
       justify-content: center;
       text-align: center;
   }  
- .profile {
+   .profile {
       display: none; 
     }
     .icon div {

@@ -46,6 +46,10 @@ nav ul li a {
 nav ul li a:hover {
   color: #5E3BEE;
 }
+.logo{
+  width:60px;
+  height: 50px;
+}
 .btn {
   color: #5E3BEE;
   font-size: 15px;
@@ -95,6 +99,11 @@ form button{
 } 
 .babo a{
   padding-left:95px;
+}
+span{
+  color:red;
+  font-style: italic;
+  font-size: 10px;
 }
 .buto{
   margin-top: 5px;
