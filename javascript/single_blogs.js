@@ -24,5 +24,12 @@ form.addEventListener('submit', (e)=>{
   if(comment.value === '' || comment.value == null){
     e.preventDefault()
     comment_error.innerHTML= "**enter comment please**"
+    return false;
+  }
+  else{
+    e.preventDefault();
+    comment_error.innerHTML= "";
+    return true;
+    
   }
 })
