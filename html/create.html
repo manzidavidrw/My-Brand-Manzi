@@ -49,13 +49,16 @@
       </div>
     </div>
     <div class="text-edtior">
-     <form action=""  method="post">
+     <form  id="form">
       <label for="text">Enter Title:</label><br>
-      <input type="text" name="text" class="title_name"><br>
+      <input type="text" name="text" class="title_name" id="title"><br>
+      <span id="title_error"></span>
       <label for="upload">Upload:</label>
-      <input type="file" class="img-blog" name="upload">
-      <textarea name="textarea" id="default" cols="30" row="10"></textarea>
+      <input type="file" class="img-blog" name="upload" id="upload">
+      <span id="upload_error"></span>
+      <textarea name="textarea" id="default" cols="20" rows="5" class="deafult_content"></textarea>
       <button type="button" class="edtitor-button">Post</button>
+      <span id="text-error"></span>
      </form>
      <script src="../tinymce/tinymce.min.js"></script>
      <script src="../javascript/create.js"></script>
