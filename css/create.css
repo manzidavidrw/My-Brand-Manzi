@@ -170,12 +170,14 @@ body {
   color:grey;
   padding:4px 6px;
   border-bottom: 2px solid black;
+  
 }
 #default{
   width:80%;
 }
 .search-box input{
   border:none;
+  
 }
 .table-articles{
   padding-left: 50px;
