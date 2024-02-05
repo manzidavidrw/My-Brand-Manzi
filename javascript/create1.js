@@ -42,6 +42,6 @@ const navList = document.querySelector('.nav-list');
 hamburger.addEventListener('click', show)
 function show(){
   navList.style.display= 'flex';
-  navList.style.top= '0';
+  navList.style.left= '0';
 
 }
