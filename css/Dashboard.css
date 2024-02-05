@@ -61,7 +61,10 @@ body {
   color: #5E3BEE;
   cursor: pointer;
 }
-
+.logo{
+  width:60px;
+  height: 50px;
+}
 .sign-out:hover {
   text-decoration: underline;
 }

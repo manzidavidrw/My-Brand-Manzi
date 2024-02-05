@@ -56,6 +56,10 @@ body {
   border-radius: 50%;
   margin-bottom: 5px;
 }
+.logo{
+  width:60px;
+  height: 50px;
+}
 
 .sign-out {
   color: #5E3BEE;
@@ -67,6 +71,13 @@ body {
 }
 
 .hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.close_menu {
   display: none;
   font-size: 24px;
   background: none;
@@ -319,8 +330,14 @@ body {
   top: 20px;
   flex-direction: column;
   align-items: left;
+  position: absolute;
 }
-
+.close_menu{
+  display: block;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
 .logo {
   display: none;
   /* Hide the logo on smaller screens */
