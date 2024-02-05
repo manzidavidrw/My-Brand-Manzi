@@ -75,6 +75,13 @@ body {
   border: none;
   cursor: pointer;
 }
+.close_menu {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 .sidebar {
   height: 100%;
   width: 250px;
@@ -230,8 +237,10 @@ border-radius: 8px;
     align-items: center;
     width:100%;
     position:absolute;
-    top:60px;
+    top:0px;
+    left:20px;
     margin:0;
+    background-color: #F5F4F4;
   }
 
   .nav-list.active {
@@ -245,7 +254,20 @@ border-radius: 8px;
   }
 
   .hamburger {
-    display: block; /* Show hamburger menu button on smaller screens */
+    display: block;
+    /* Show hamburger menu button on smaller screens */
+    left: 20px;
+    top: 0;
+    flex-direction: column;
+    align-items: left;
+    position: absolute;
+   
+  }
+  .close_menu{
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 0;
   }
   .logo {
     display: none; /* Hide the logo on smaller screens */
