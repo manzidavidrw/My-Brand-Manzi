@@ -28,7 +28,13 @@ nav {
   border: none;
   cursor: pointer;
 }
-
+.close_menu {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 nav ul li {
   list-style: none;
   padding: 10px 20px;
@@ -57,9 +63,6 @@ nav ul li a:hover {
 .logo{
   width:60px;
   height: 50px;
-}
-.close_menu{
- display: none;
 }
 .logo2{
   width:50px;
@@ -618,16 +621,19 @@ hr {
   }
   .hamburger {
     display: block;
-  }
-  nav .hamburger .close_menu{
-    display: block;
     position: absolute;
     top:20px;
     right:20px;
   }
-  /* .logo{
+  .close_menu{
+    display: block;
+    position: absolute;
+    top:20px;
+    right:70px;
+  }
+  .logo{
     display: none;
-  } */
+  }
 
   .nav-list li {
     padding: 10px;
