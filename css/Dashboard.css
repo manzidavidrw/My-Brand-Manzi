@@ -245,7 +245,7 @@ border-radius: 8px;
 
   .nav-list.active {
     display: flex; /* Show links when the hamburger menu is active */
-  }
+  } 
 
   .nav-list li {
     padding: 10px 0;
@@ -279,9 +279,9 @@ border-radius: 8px;
     margin-top: 0; /* Remove margin at the top */
     margin-left: 10%;
   }
-.left-side{
+ .left-side{
   flex-direction: column;
-}
+ }
   .stats {
     display: flex; /* Stack items vertically on smaller screens */
     align-items: center; /* Align items to the start on smaller screens */

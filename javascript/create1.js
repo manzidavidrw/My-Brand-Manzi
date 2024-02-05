@@ -51,3 +51,13 @@ function close(){
   navList.style.top= '-100%';
 }
 
+const Blog_title = title.value;
+const Blog_image = upload.value;
+const Blog_description = text_editor.value;
+
+const allBlogs ={
+  id : '1',
+  Blog_title:'Revulotion of Tech ',
+  Blog_image: ' ../',
+  Blog_description:''
+}
