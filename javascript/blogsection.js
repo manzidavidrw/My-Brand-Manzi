@@ -12,12 +12,13 @@ allBlogs.forEach((blg) =>  {
 </div>`
 }
 )
-blogs.innerHTML = allThem;
-// const blog = document.querySelector('.blog-img')
-// blog.forEach((blg)=>{
-  blogs.addEventListener("click", (e)=>{
-      e.preventDefault()
-      const id = e.target.closest(".blog-img").getAttribute('key')
-      window.location.href=`./html/single_blog.html?id=${id}`
-})
+// blogs.innerHTML = allThem;
+// // const blog = document.querySelector('.blog-img')
+// // blog.forEach((blg)=>{
+//   blogs.addEventListener("click", (e)=>{
+//       e.preventDefault()
+//       const id = e.target.closest(".blog-img").getAttribute('key')
+//       window.location.href=`./html/single_blog.html?id=${id}`
+      
 // })
+// // })
