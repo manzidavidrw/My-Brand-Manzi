@@ -79,15 +79,15 @@ function messagevalid(){
   var message_error =document.getElementById("message_error")
 
 
-//   var area_check= /^[a-zA-Z]*$/;
-// if(area.match(area_check)){
-//     form.classList.add("valid");
-//     form.classList.remove("invalid");
-//     message_error.innerHTML=" ";
-// }
-// else{
-//   form.classList.add("valid");
-//     form.classList.remove("invalid");
-//     message_error.innerHTML="message cant be only numbers";
-// }
-// }
+  var area_check= /^[a-zA-Z]*$/;
+if(area.match(area_check)){
+    form.classList.add("valid");
+    form.classList.remove("invalid");
+    message_error.innerHTML=" ";
+}
+else{
+  form.classList.add("valid");
+    form.classList.remove("invalid");
+    message_error.innerHTML="message cant be only numbers";
+}
+}
