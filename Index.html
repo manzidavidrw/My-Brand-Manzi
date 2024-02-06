@@ -134,7 +134,7 @@
     </div>
     <div class="blogs">
       <div class="blog-list">
-        <div class="blog-img">
+        <!-- <div class="blog-img">
           <div class="thumb">
             <img src="./assets/flowers-276014_640.jpg">
           </div>
@@ -154,7 +154,7 @@
           </div>
           <h3 class="blog-title">Article name-headline for an article</h3>
           <a href="#" class="readmore"><u>Read More</u></a>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -167,27 +167,27 @@
     <form id="form">
       <div class="contact-form">
         <div class="fileds">
-          <label for="fname" class="babo">First Name</label><br>
-          <input type="text" class="fname" id="fname">
+          <label for="fname" class="babo">Enter Name</label><br>
+          <input type="text" class="fname" id="fname" onkeydown="fnamevalid()">
         </div>
-        <div>
+        <!-- <div>
           <label for="fname" class="babo">Last Name</label><br>
-          <input type="text" class="lname" id="fname">
-        </div>
+          <input type="text" class="lname" id="fname" onkeydown="fnamevalid()" >
+        </div> -->
       </div>
       <span id="name_error"></span>
       <div class="contact-form" >
         <div class="fileds">
           <label for="email" class="babo">Email</label><br>
-          <input type="text" class="fname" id="email" placeholder="example@name.com">   
+          <input type="text" class="lname" id="email" placeholder="example@name.com" onkeydown="secondvalid()">   
         </div>
         <div>
           <label for="phone" class="babo" >Phone Number</label><br>
-          <input type="text" class="lname" id="phone" placeholder="include country code">
+          <input type="text" class="lname" id="phone" placeholder="include country code" onkeydown="secondvalid()">
         </div><br>
       </div>
       <span id="phone_error"></span>
-      <div class="choose-topic">
+      <!-- <div class="choose-topic">
         <label for="choo" class="babo">Choose Topic</label><br>
         <select id="choo">
           <option value="choo">Select One</option>
@@ -195,16 +195,15 @@
           <option value="choo">sssss</option>
           <option value="choo">hhhhhh</option>
         </select>
-      </div><br>
+      </div><br> -->
       <div class="message">
         <label for="area" class="babo">Message</label><br>
         <textarea name="Message" class="areaa" id="area"cols="45" rows="6" placeholder="Type your Message..."
-          color="#5E3BEE"></textarea>
+          color="#5E3BEE" onkeydown="messagevalid()"></textarea>
       </div>
       <span id="message_error"></span>
       <div class="accept">
-        <input type="checkbox" class="check">
-        <label for="check">I accept the terms</label>
+      
       </div>
       <div class="contact-button">
         <button type="submit">submit</button>
@@ -245,5 +244,6 @@
     </div>
   </div>
   <script src="./javascript/portofolio.js"></script>
+  <script src="./javascript/blogsection.js"></script>
 </body>
 </html>

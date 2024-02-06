@@ -23,44 +23,71 @@
   }
 
 
-const form = document.getElementById('form');
-const fname = document.getElementById('fname');
-const phone = document.getElementById('phone');
-const area = document.getElementById('area');
-const email = document.getElementById('email');
+// const form = document.getElementById('form');
+// const fname = document.getElementById('fname');
+// const phone = document.getElementById('phone');
+// const area = document.getElementById('area');
+// const email = document.getElementById('email');
 
-const name_error = document.getElementById('name_error');
-const phone_error = document.getElementById('phone_error');
-const password_error = document.getElementById('password_error');
-const message_error =document.getElementById('message_error');
+// const name_error = document.getElementById('name_error');
+// const phone_error = document.getElementById('phone_error');
+// const password_error = document.getElementById('password_error');
+// const message_error =document.getElementById('message_error');
 
-form.addEventListener('submit', (e)=>{
-let phone_check = /^\+2507\d{8}$/;
-let email_checker =/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function fnamevalid(){
+  var form=document.getElementById("form");
+  var name=document.getElementById("fname").value;
+  var name_error=document.getElementById("name_error");
 
-  if(fname.value === '' || fname.value == null){
-    e.preventDefault();
-    name_error.innerHTML = '**please enter names**';
+var name_check = /^[a-z]{5,}$/;
+if(name.match(name_check))
+{
+form.classList.add("valid");
+form.classList.remove("invalid");
+name_error.innerHTML=" ";
+}
+else{
+  form.classList.remove("valid");
+  form.classList.add("invalid");
+  name_error.innerHTML=" **too short name**";
+  
+}
+}
+function secondvalid(){
+  var form =document.getElementById("form");
+  var email=document.getElementById("email").value;
+  var phone=document.getElementById("phone").value;
+  var phone_error=document.getElementById("phone_error");
+
+  let phone_check = /^\+2507[2389]\d{6}$/;
+  let email_checker =/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(email.match(email_checker) &&  phone.match(phone_check)){
+    form.classList.add("valid");
+    form.classList.remove("invalid");
+    phone_error.innerHTML=" ";
   }
   else{
-    name_error.innerHTML ="";
+    form.classList.add("valid");
+    form.classList.remove("invalid");
+    phone_error.innerHTML=" **please fill in correctly**";
   }
+}
 
-  if(!phone.value.match(phone_check) || !email.value.match(email_checker)){
-    e.preventDefault();
-    phone_error.innerHTML= "**please fill in these fields correctly**";
-  }
-  else{
-    phone_error.innerHTML="";
-  }
-  if(phone.value)
+function messagevalid(){
+  var form =document.getElementById("form");
+  var area =document.getElementById("area").value
+  var message_error =document.getElementById("message_error")
 
 
-  if(area.value === '' || area.value == null){
-  e.preventDefault();
-  message_error.innerHTML = "**please Enter Message**"
-  }
-  else{
-    message_error.innerHTML =""
-  }
-})
+  var area_check= /^[a-zA-Z]*$/;
+if(area.match(area_check)){
+    form.classList.add("valid");
+    form.classList.remove("invalid");
+    message_error.innerHTML=" ";
+}
+else{
+  form.classList.add("valid");
+    form.classList.remove("invalid");
+    message_error.innerHTML="message cant be only numbers";
+}
+}

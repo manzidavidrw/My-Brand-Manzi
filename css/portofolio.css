@@ -500,12 +500,13 @@ label {
 }
 
 .fname {
-  width: 180px;
+  width: 390px;
   border-radius: 3px;
   border-color: #5E3BEE;
   border: 1.3px solid #5E3BEE;
   height: 23px;
 }
+
 
 .lname {
   width: 180px;
@@ -516,7 +517,7 @@ label {
 }
 
 .areaa {
-  width: 400px;
+  width: 390px;
   border-radius: 3px;
   border-color: #5E3BEE;
   border: 1.3px solid #5E3BEE;
