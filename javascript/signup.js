@@ -46,14 +46,16 @@ form.addEventListener('submit', async(e)=>{
 
    const email = document.getElementById('email').value;
    const password = document.getElementById('password').value;
+   const userName = document.getElementById('username').value;
 
    const datas = {
     email:email,
+    userName:userName,
     password:password
    }
  
   try {
-    const response = await fetch('http://localhost:3000/api/login',{
+    const response = await fetch('http://localhost:3000/api/signup',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(datas)
@@ -61,10 +63,8 @@ form.addEventListener('submit', async(e)=>{
     
    
     if ( !response.ok){
-        alert('Login failed. Please try again.');
-        clearCredentials();
-        throw new Error('login failed')
-
+      alert('signup failed. Please try again.');
+      throw new Error('signup failed')
     }
   
     const result = await response.json()
@@ -74,17 +74,12 @@ form.addEventListener('submit', async(e)=>{
   const token = result.data
 
     localStorage.setItem('token',token)
-    window.location =`Dashboard.html`
+    alert('signup successfull.');
+    window.location =`login.html`
     
     console.log(token)
   
-    
-    
   } catch (error) {
     console.log({error:error.message})
   }
 })
-function clearCredentials() {
-  document.getElementById('email').value = ' ';
-  document.getElementById('password').value = ' ';
-}

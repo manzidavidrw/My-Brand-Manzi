@@ -48,16 +48,12 @@ const currentUrl = new URL(window.location.href);
 const searchParams = new URLSearchParams(currentUrl.search);
 const blogId = searchParams.get("id");
 
-
-const allblogs = JSON.parse(localStorage.getItem("blogs")) || {};
-
-const selectedBlog = allblogs.find((blog) => blog.id == blogId);
-
-
-const container=document.querySelector('.container')
+fetch(`http://localhost:3000/api/blogs/${blogId}`)
+.then(response => response.json())
+.then(data => { const container=document.querySelector('.container')
 container.innerHTML = `<div class="blog-date">January 10, 2023</div>
 
-<div class="blog-title">${selectedBlog.title}</div>
+<div class="blog-title">${data.title}</div>
 
 <div class="author-details">
   <img src="../assets/Avatar Image (1).png" alt="Author Picture" class="author-picture">
@@ -70,63 +66,102 @@ container.innerHTML = `<div class="blog-date">January 10, 2023</div>
   </div>
 </div>
 <div class="single-blog-image">
-  <img src="../assets/remote work 1.png" alt="Content Picture" class="content-picture">
+  <img src="${data.image}" alt="Content Picture" class="content-picture">
 </div>
 <div class="blog-text-and-form">
   <div class="blog-text">
-  ${selectedBlog.description}
-    <form id="form">
-      <h3>Comment</h3>
-      <label for="email">Email:</label>
-      <input type="email" id="email"><br>
-      <span id="email_error"></span><br>
-      <label for="comment">Comment:</label>
-      <textarea id="comment" name="comment" rows="4" cols="6" placeholder="Type your comment..."></textarea><br>
-      <span id="comment_error"></span><br>
+  ${data.content}
+  </div>
+</div>`})
 
-      <button type="submit">Submit</button><br>
-    </form>
-  </div>
-  <div class="comments">
-    <div class="comment">
-      <div class="author-details">
-        <img src="../assets/profile.jpeg" alt="Author Picture" class="author-picture">
-        <div class="author-info">
-          <div class="author-name1">Brian Dean</div>
-        </div>
+console.log(blogId)
+fetch(`http://localhost:3000/api/blogs/${blogId}/comments`)
+.then(response => response.json())
+.then(output => {
+  const commentsBlog=document.querySelector('.comments')
+  console.log(output)
+  let allComments =''
+  output.forEach(coment => {  
+    allComments +=
+    ` <div class="comment">
+    <div class="author-details">
+      <div class="author-info">
+        <div class="author-name1">${coment.email}</div>
       </div>
-      <p>Thanks Beal
-        Happy to hear that and props fo putting any material into practice </p>
     </div>
-    <div class="comment">
-      <div class="author-details">
-        <img src="../assets/profile.jpeg" alt="Author Picture" class="author-picture">
-        <div class="author-info">
-          <div class="author-name1">Brian Dean</div>
-        </div>
-      </div>
-      <p>Thanks Beal
-        Happy to hear that and props fo putting any material into practice </p>
-    </div>
-    <div class="comment">
-      <div class="author-details">
-        <img src="../assets/profile.jpeg" alt="Author Picture" class="author-picture">
-        <div class="author-info">
-          <div class="author-name1">Brian Dean</div>
-        </div>
-      </div>
-      <p>Thanks Beal
-        Happy to hear that and props fo putting any material into practice </p>
-    </div>
-    <div class="comment">
-      <div class="author-details">
-        <img src="../assets/profile.jpeg" alt="Author Picture" class="author-picture">
-        <div class="author-info">
-          <div class="author-name1">Brian Dean</div>
-        </div>
-      </div>
-      <p>Thanks Beal
-        Happy to hear that and props fo putting any material into practice </p>
-    </div>
-  </div>
-</div>`
+    <p>${coment.comment}</p>
+  </div>`})
+  commentsBlog.innerHTML = allComments
+})
+
+
+
+const emails = document.getElementById("email");
+const comments = document.getElementById("comment");
+
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  var Ccomment = comments.value.trim();
+  var Cemail = emails.value.trim();
+  
+  const data = {
+    email: Cemail,
+    comment: Ccomment,
+  };
+  console.log(blogId);
+  function postComment(data) {
+    // Assuming you're using fetch for API calls
+    fetch(
+     `http://localhost:3000/api/blogs/${blogId}/comments`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          // Comment created successfully
+          swal({
+            title: "Done!",
+            text: "Comment Sent!!",
+            icon: "success",
+            button: "OK!",
+          }).then(() => {
+            window.location.reload();
+          });
+        } else {
+          // Failed to create comment
+          swal("Ooops!", "Something is wrong", "warning");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+  postComment(data);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

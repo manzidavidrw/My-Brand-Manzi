@@ -202,10 +202,10 @@ body {
   font-size: 12px;
   border-bottom: 2px solid #C1BFBF;
 }
-.dido button{
-width:100px;
-padding:5px;
-border-radius: 8px;
+.dido button {
+  width: 65px; /* Adjust width as needed */
+  padding: 3px; /* Adjust padding as needed */
+  border-radius: 5px; /* Adjust border-radius as needed */
 }
 .Updates{
   background-color: #5E3BEE;
