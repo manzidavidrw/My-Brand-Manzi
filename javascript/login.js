@@ -53,7 +53,7 @@ form.addEventListener('submit', async(e)=>{
    }
  
   try {
-    const response = await fetch('https://my-brand-manzi-backend.onrender.com/api/login',{
+    const response = await fetch('http://localhost:3000/api/login',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(datas)

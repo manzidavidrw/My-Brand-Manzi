@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchParams = new URLSearchParams(currentUrl.search);
     const blogId = searchParams.get("id");
 
-    fetch(`https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}/comments`)
+    fetch(`http://localhost:3000/api/blogs/${blogId}/comments`)
         .then(response => response.json())
         .then(data => {
             const commentsBody = document.getElementById('comments-body');

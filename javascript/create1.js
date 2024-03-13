@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const token = localStorage.getItem('token');
 
           try {
-              const response = await fetch('https://my-brand-manzi-backend.onrender.com/api/blogs', {
+              const response = await fetch('http://localhost:3000/api/blogs', {
                   method: 'POST',
                   headers: {
                       Authorization: `Bearer ${token}`
