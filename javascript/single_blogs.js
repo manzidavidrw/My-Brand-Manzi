@@ -75,7 +75,7 @@ container.innerHTML = `<div class="blog-date">January 10, 2023</div>
 </div>`})
 
 console.log(blogId)
-fetch(`http://localhost:3000api/blogs/${blogId}/comments`)
+fetch(`https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}/comments`)
 .then(response => response.json())
 .then(output => {
   const commentsBlog=document.querySelector('.comments')
@@ -113,7 +113,7 @@ form.addEventListener("submit", (e) => {
   function postComment(data) {
     // Assuming you're using fetch for API calls
     fetch(
-     `http://localhost:3000/api/blogs/${blogId}/comments`,
+     `https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}/comments`,
       {
         method: "POST",
         headers: {

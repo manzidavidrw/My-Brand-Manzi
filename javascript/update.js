@@ -9,7 +9,7 @@ let contentError = document.querySelector(".content-error");
 const content = document.querySelector("#summernote"); //text editor
 let form = document.querySelector("#form"); // update form id
 const fileInput = document.querySelector("#upload");
-const url = "http://localhost:3000";
+const url = "https://my-brand-manzi-backend.onrender.com";
 fetch(url + `/api/blogs/${blogId}`)
   .then((res) => res.json())
   .then((output) => {
