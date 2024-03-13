@@ -51,7 +51,7 @@ editblog.forEach((editbutton) => {
 
 
 const blogs = async () => {
-  const fetchBlogs = await fetch('http://localhost:3000/api/blogs')
+  const fetchBlogs = await fetch('https://my-brand-manzi-backend.onrender.com/api/blogs')
   const list = await fetchBlogs.json();
   let all = ''
   //  console.log(list);
@@ -99,7 +99,7 @@ document.querySelector(".table").addEventListener("click", (e) => {
     //console.log("hii");
     const id = target.getAttribute("key");
     //console.log("id: ", id);
-    const url = "http://localhost:3000";
+    const url = "https://my-brand-manzi-backend.onrender.com";
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover the blog!",

@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const token = localStorage.getItem('token');
 
           try {
-              const response = await fetch('http://localhost:3000/api/blogs', {
+              const response = await fetch('https://my-brand-manzi-backend.onrender.com/api/blogs', {
                   method: 'POST',
                   headers: {
                       Authorization: `Bearer ${token}`
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
               const result = await response.json();
               swal( "Blog created successfully!", "success");
-              // Redirect to dashboard or perform any other action
+              window.location.href = "../html/Dashboard.html";
           } catch (error) {
               console.error('Error:', error);
               // Handle error (e.g., display error message to the user)
