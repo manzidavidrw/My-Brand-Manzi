@@ -48,7 +48,7 @@ const currentUrl = new URL(window.location.href);
 const searchParams = new URLSearchParams(currentUrl.search);
 const blogId = searchParams.get("id");
 
-fetch(`http://localhost:3000/api/blogs/${blogId}`)
+fetch(`https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}`)
 .then(response => response.json())
 .then(data => { const container=document.querySelector('.container')
 container.innerHTML = `<div class="blog-date">January 10, 2023</div>
@@ -75,7 +75,7 @@ container.innerHTML = `<div class="blog-date">January 10, 2023</div>
 </div>`})
 
 console.log(blogId)
-fetch(`http://localhost:3000/api/blogs/${blogId}/comments`)
+fetch(`http://localhost:3000api/blogs/${blogId}/comments`)
 .then(response => response.json())
 .then(output => {
   const commentsBlog=document.querySelector('.comments')

@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
               const result = await response.json();
               swal( "Blog created successfully!", "success");
-              // Redirect to dashboard or perform any other action
+              window.location.href = "../html/Dashboard.html";
           } catch (error) {
               console.error('Error:', error);
               // Handle error (e.g., display error message to the user)
