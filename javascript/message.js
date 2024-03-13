@@ -1,5 +1,5 @@
 const blogs = async () => {
-  const fetchMessage= await fetch('http://localhost:3000/api/messages')
+  const fetchMessage= await fetch('https://my-brand-manzi-backend.onrender.com/api/messages')
   const list = await fetchMessage.json();
   let allMessages=''
   //  console.log(list);
