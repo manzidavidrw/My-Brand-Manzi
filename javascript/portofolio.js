@@ -55,7 +55,6 @@ function fnamevalid() {
 function secondvalid() {
   var form = document.getElementById("form");
   var email = document.getElementById("email").value;
-  var phone = document.getElementById("phone").value;
   var phone_error = document.getElementById("phone_error");
 
   let phone_check = /^\+2507[2389]\d{6}$/;

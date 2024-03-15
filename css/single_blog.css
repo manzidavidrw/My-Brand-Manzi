@@ -168,6 +168,36 @@ form h3{
   text-align: center;
   color:grey;
 }
+
+ */
+/* CSS for the like button */
+.like-button {
+  text-align: center;
+  margin-top: 20px; 
+}
+
+.like-button button {
+  background-color: #007bff; /* Change the background color as desired */
+  color: #fff; /* Change the text color as desired */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.like-button button:hover {
+  background-color: #0056b3; /* Change the hover color as desired */
+}
+
+.like-button button i {
+  margin-right: 5px;
+}
+
+/* CSS for positioning the like button below the blog content */
+.container {
+  margin-bottom: 50px; /* Add margin to create space for the like button */
+}
+
 .footer {
   margin-top: 40px;
   border-bottom: 1px solid grey;
