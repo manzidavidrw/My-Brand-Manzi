@@ -1,54 +1,76 @@
+// Action types
+const SET_COMMENTS = 'SET_COMMENTS';
+const SET_BLOG_DATA = 'SET_BLOG_DATA';
+const SET_BLOG_ID = 'SET_BLOG_ID';
 
-function CommentAdd() {
-  
-  const getBlogId = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('id');
-  };
+// Action creators
+const setComments = (comments) => ({
+  type: SET_COMMENTS,
+  payload: comments,
+});
 
-  const [comments, setComments] = React.useState([]); 
-  const [blogData, setBlogData] = React.useState(null); 
-  const blogId = getBlogId(); 
+const setBlogData = (blogData) => ({
+  type: SET_BLOG_DATA,
+  payload: blogData,
+});
 
-  
-  const fetchComments = (blogId) => {
-    fetch(`https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}/comments`)
-      .then((response) => response.json())
-      .then((output) => {
-        setComments(output); 
-      })
-      .catch((error) => {
-        console.error("Error fetching comments:", error);
-      });
-  };
-  
-  const fetchBlogData = (blogId) => {
-    fetch(`https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}`)
-      .then(response => response.json())
-      .then(data => {
-        setBlogData(data); 
-      })
-      .catch(error => {
-        console.error("Error fetching blog data:", error);
-      });
-  };
+const setBlogId = (blogId) => ({
+  type: SET_BLOG_ID,
+  payload: blogId,
+});
 
-  
+// Reducers
+const commentsReducer = (state = [], action) => {
+  switch (action.type) {
+    case SET_COMMENTS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const blogDataReducer = (state = null, action) => {
+  switch (action.type) {
+    case SET_BLOG_DATA:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const blogIdReducer = (state = null, action) => {
+  switch (action.type) {
+    case SET_BLOG_ID:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+// Combine reducers
+const rootReducer = Redux.combineReducers({
+  comments: commentsReducer,
+  blogData: blogDataReducer,
+  blogId: blogIdReducer,
+});
+
+// Store
+const store = Redux.createStore(rootReducer, Redux.applyMiddleware(ReduxThunk.default));
+
+// Component
+function CommentAdd({ comments, blogData, blogId, fetchComments, fetchBlogData, setBlogId }) {
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
-   
     const email = event.target.email.value;
     const comment = event.target.comment.value;
 
-    
     const data = {
       email: email,
       comment: comment
     };
 
-    
-    fetch(`http://localhost:3000/api/blogs/${blogId}/comments`, {
+    fetch(`https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,26 +80,27 @@ function CommentAdd() {
       .then((response) => response.json())
       .then((result) => {
         console.log("Comment created:", result);
-        
         fetchComments(blogId);
       })
       .catch((error) => {
         console.error("Error:", error);
-        
         alert("Failed to submit comment. Please try again later.");
       });
 
-    
     event.target.reset();
   };
 
-  
   React.useEffect(() => {
-    fetchComments(blogId);
-    fetchBlogData(blogId);
-  }, [blogId]); 
+    const currentUrl = new URL(window.location.href);
+    const searchParams = new URLSearchParams(currentUrl.search);
+    const id = searchParams.get("id");
+    if (id) {
+      fetchComments(id);
+      fetchBlogData(id);
+      setBlogId(id);
+    }
+  }, [fetchComments, fetchBlogData, setBlogId]);
 
-  
   const commentsList = comments.map((comment, index) => (
     <div key={index} className="comment">
       <div className="author-details">
@@ -89,7 +112,6 @@ function CommentAdd() {
     </div>
   ));
 
-  
   const blogContent = blogData ? (
     <div className="container">
       <div className="blog-date">January 10, 2023</div>
@@ -100,7 +122,7 @@ function CommentAdd() {
           <div className="author-name">Author Name</div>
           <div className="author-position">CEO</div>
           <div className="author-location">
-            <span className="location-icon">&#127758;</span> USA,Mississipi
+            <span className="location-icon">&#127758;</span> USA, Mississippi
           </div>
         </div>
       </div>
@@ -108,12 +130,11 @@ function CommentAdd() {
         <img src={blogData.image} alt="Content Picture" className="content-picture" />
       </div>
       <div className="blog-text-and-form">
-        <div className="blog-text" dangerouslySetInnerHTML={{ __html: blogData.content}}></div>
+        <div className="blog-text" dangerouslySetInnerHTML={{ __html: blogData.content }}></div>
       </div>
     </div>
   ) : null;
 
-  
   return (
     <div>
       {blogContent}
@@ -121,15 +142,55 @@ function CommentAdd() {
       <form id="form" onSubmit={handleSubmit}>
         <h3>Comment</h3>
         <label htmlFor="email">Email:</label>
-        <input type="email" id="email" required /><br/>
-        <span id="email_error"></span><br/>
+        <input type="email" id="email" required /><br />
+        <span id="email_error"></span><br />
         <label htmlFor="comment">Comment:</label>
-        <textarea id="comment" name="comment" rows="4" cols="6" placeholder="Type your comment..." required></textarea><br/>
-        <span id="comment_error"></span><br/>
+        <textarea id="comment" name="comment" rows="4" cols="6" placeholder="Type your comment..." required></textarea><br />
+        <span id="comment_error"></span><br />
 
-        <button type="submit">Submit</button><br/>
+        <button type="submit">Submit</button><br />
       </form>
     </div>
   );
 }
-ReactDOM.render(<CommentAdd/>, document.getElementById("comments_Add_jsx"));
+
+// Container component
+const mapStateToProps = (state) => ({
+  comments: state.comments,
+  blogData: state.blogData,
+  blogId: state.blogId,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchComments: (blogId) => {
+    fetch(`https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}/comments`)
+      .then((response) => response.json())
+      .then((output) => {
+        dispatch(setComments(output));
+      })
+      .catch((error) => {
+        console.error("Error fetching comments:", error);
+      });
+  },
+  fetchBlogData: (blogId) => {
+    fetch(`https://my-brand-manzi-backend.onrender.com/api/blogs/${blogId}`)
+      .then(response => response.json())
+      .then(data => {
+        dispatch(setBlogData(data));
+      })
+      .catch(error => {
+        console.error("Error fetching blog data:", error);
+      });
+  },
+  setBlogId: (blogId) => {
+    dispatch(setBlogId(blogId));
+  },
+});
+
+const ConnectedCommentAdd = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(CommentAdd);
+
+// Render
+ReactDOM.render(
+  React.createElement(ReactRedux.Provider, { store: store }, React.createElement(ConnectedCommentAdd)),
+  document.getElementById("comments_Add_jsx")
+);
