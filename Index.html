@@ -9,6 +9,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.2/redux.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux-thunk/2.3.0/redux-thunk.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.6/react-redux.min.js"></script>
 </head>
 
 <body>
@@ -155,7 +167,9 @@
           <h3 class="blog-title">Article name-headline for an article</h3>
           <a href="#" class="readmore"><u>Read More</u></a>
         </div> -->
+        <div id="blogslist"></div>
       </div>
+      
     </div>
   </div>
   <div class="contact">
@@ -245,6 +259,7 @@
   </div>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="./javascript/portofolio.js"></script>
-  <script src="./javascript/blogsection.js"></script>
+  <!-- <script src="./javascript/blogsection.js"></script> -->
+  <script  type="text/babel" src="./jsx/bloglist.js"></script>
 </body>
 </html>
