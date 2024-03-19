@@ -26,9 +26,7 @@ const rootReducer = Redux.combineReducers({
 const store = Redux.createStore(rootReducer, Redux.applyMiddleware(ReduxThunk.default));
 
 // Component to render blogs
-const Blogs = () => {
-  const [blogs, setBlogs] = React.useState([]);
-
+function Blogs({ blogs, setBlogs }) {
   React.useEffect(() => {
     fetchBlogs();
   }, []);
@@ -56,12 +54,22 @@ const Blogs = () => {
       ))}
     </div>
   );
-};
+}
 
-// Render the component
+// Map Redux state and dispatch to component props
+const mapStateToProps = (state) => ({
+  blogs: state.blogs,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setBlogs: (blogs) => dispatch(setBlogs(blogs)),
+});
+
+// Connect the component to the Redux store
+const ConnectedBlogs = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(Blogs);
+
+// Render the component wrapped in the Provider
 ReactDOM.render(
-  <React.StrictMode>
-    <Blogs />
-  </React.StrictMode>,
+  React.createElement(ReactRedux.Provider, { store: store }, React.createElement(ConnectedBlogs)),
   document.getElementById('blogslist')
 );
